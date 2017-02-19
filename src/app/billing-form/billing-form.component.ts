@@ -1,9 +1,9 @@
 /* tslint:disable: member-ordering forin */
-import { Component, OnInit, Output, EventEmitter }                  from '@angular/core';
+import { Component, OnInit,} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { BillingData }                   from './billingData';
-import { textValidator, keyValidator } from './forbidden-name.directive';
+import { BillingData } from './billingData';
+import { textValidator, keyValidator } from './customValidators';
 
 @Component({
   selector: 'app-billing-form',
@@ -76,17 +76,12 @@ export class BillingFormComponent implements OnInit {
     const form = this.billingForm;
 
     for (const field in this.formErrors) {
-      // name
       // clear previous error message (if any)
-      // formErrors.name = ''
       this.formErrors[field] = '';
-      // form.controls.name
       const control = form.get(field);
       if (control && control.dirty && !control.valid) {
-        // validationMessages.name
         const messages = this.validationMessages[field];
         for (const key in control.errors) {
-          // name.minLength
           this.formErrors[field] += messages[key] + ' ';
         }
       }
