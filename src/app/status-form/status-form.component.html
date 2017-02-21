@@ -1,3 +1,19 @@
-<p>
-  status-form works!
-</p>
+  <div class="container">
+  <form (ngSubmit)="onSubmit(); statusForm.reset()" #statusForm="ngForm">
+    <md-input-container>
+      <input #name="ngModel" name="status" [(ngModel)]="child.name" required mdInput type="text" placeholder="Child name">
+    </md-input-container>
+    <div [hidden]="name.valid || name.pristine">
+      Name is required
+    </div>
+    <br>
+    <md-input-container>
+      <input #status="ngModel" name="status" [(ngModel)]="child.status" required mdInput type="text" placeholder="status">
+    </md-input-container>
+    <div [hidden]="status.valid || status.pristine">
+      Status is required
+    </div>
+    <br>
+    <button [disabled]="statusForm.form.invalid" md-button type="submit">Update</button>
+  </form>
+</div>
