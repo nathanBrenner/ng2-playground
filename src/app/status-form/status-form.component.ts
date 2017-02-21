@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Child } from './child.model';
 @Component({
   selector: 'app-status-form',
@@ -6,15 +6,11 @@ import { Child } from './child.model';
   styleUrls: ['./status-form.component.css']
 })
 export class StatusFormComponent implements OnInit {
+  @Output() onSubmit = new EventEmitter();
   child = new Child('', '');
 
   constructor() { }
 
-  ngOnInit() {
-  }
-
-  onSubmit(){
-    console.log(this.child);
-  }
+  ngOnInit() {}
 
 }
