@@ -6,11 +6,14 @@ import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { StatusFormComponent } from './status-form/status-form.component';
+import { ChildrenStatusComponent } from './children-status/children-status.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StatusFormComponent
+    StatusFormComponent,
+    ChildrenStatusComponent,
+    ChildrenStatusComponent
   ],
   imports: [
     BrowserModule,
