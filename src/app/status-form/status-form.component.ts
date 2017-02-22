@@ -6,11 +6,14 @@ import { Child } from './child.model';
   styleUrls: ['./status-form.component.css']
 })
 export class StatusFormComponent implements OnInit {
-  @Output() onSubmit = new EventEmitter();
+  @Output() updateChild = new EventEmitter();
   child = new Child('', '');
 
   constructor() { }
 
   ngOnInit() {}
-
+  onSubmit(form){
+    this.updateChild.emit(form.value);
+    form.reset();
+  }
 }
