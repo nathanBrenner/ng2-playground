@@ -1,0 +1,31 @@
+  <div class="container">
+  <form 
+    [formGroup]="statusForm"
+    (ngSubmit)="onSubmit(statusForm)">
+    <md-input-container>
+      <input 
+        required 
+        mdInput 
+        type="text" 
+        placeholder="Child name"
+        formControlName="name">
+    </md-input-container>
+    <div *ngIf="statusFormErrors.name">
+      {{statusFormErrors.name}}
+    </div>
+    <br>
+    <md-input-container>
+      <input 
+        required 
+        mdInput 
+        type="text" 
+        placeholder="status"
+        formControlName="status">
+    </md-input-container>
+    <div *ngIf="statusFormErrors.status">
+      {{statusFormErrors.status}}
+    </div>
+    <br>
+    <button md-button type="submit">Update</button>
+  </form>
+</div>
