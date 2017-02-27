@@ -9,7 +9,18 @@ import { Component } from '@angular/core';
     routerLinkActive="active"
     [routerLinkActiveOptions]="{exact:true}"
   >Home</a>
-  <a routerLink="contacts" routerLinkActive="active">Contacts</a>
+  <a 
+    routerLink="contacts" 
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{exact:true}"
+  >Contacts</a>
+  <a 
+    routerLink="contacts/1" 
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{exact:true}"
+    >
+    Contact one 
+  </a>
 </nav>
 <router-outlet></router-outlet>`,
   styles: [`
