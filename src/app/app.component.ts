@@ -14,6 +14,7 @@ import { Component } from '@angular/core';
   styles: [`
     a{
       text-decoration: none;
+      padding: 10px;
     }
     a.active{
       font-weight: bold;
