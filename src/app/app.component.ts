@@ -4,10 +4,21 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
 <nav>
-  <a routerLink="">Home</a>
-  <a routerLink="contacts">Contacts</a>
+  <a 
+    routerLink="" 
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{exact:true}"
+  >Home</a>
+  <a routerLink="contacts" routerLinkActive="active">Contacts</a>
 </nav>
 <router-outlet></router-outlet>`,
-  styleUrls: ['./app.component.css']
+  styles: [`
+    a{
+      text-decoration: none;
+    }
+    a.active{
+      font-weight: bold;
+    }
+  `]
 })
 export class AppComponent {}
