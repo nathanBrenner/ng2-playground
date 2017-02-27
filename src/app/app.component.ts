@@ -4,23 +4,11 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
 <nav>
-  <a 
-    routerLink="" 
+  <a *ngFor="let nav of navs"
+    [routerLink]="nav.url" 
     routerLinkActive="active"
     [routerLinkActiveOptions]="{exact:true}"
-  >Home</a>
-  <a 
-    routerLink="contacts" 
-    routerLinkActive="active"
-    [routerLinkActiveOptions]="{exact:true}"
-  >Contacts</a>
-  <a 
-    routerLink="contacts/1" 
-    routerLinkActive="active"
-    [routerLinkActiveOptions]="{exact:true}"
-    >
-    Contact one 
-  </a>
+  >{{nav.content}}</a>
 </nav>
 <router-outlet></router-outlet>`,
   styles: [`
@@ -32,4 +20,10 @@ import { Component } from '@angular/core';
     }
   `]
 })
-export class AppComponent {}
+export class AppComponent {
+  navs = [
+    {url: '', content: 'Home'},
+    {url: 'contacts', content: 'Contacts'},
+    {url: 'contacts/1', content: 'One'}
+  ]
+}
