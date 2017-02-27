@@ -1,31 +1,14 @@
-# Ng2Playground
+# Egghead.io course on manage state with the Angular Router
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.30.
+I finally got around to checking this course out.
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+For a while, I doubted that I really needed to know stuff like lazy loading and the more advanced features of the router since I had subscribed to the ngrx patterns
 
-## Code scaffolding
+## Some takeaways:
+The explaintion and demo on lazy loading made a lot more sense.  I had heard about it, but seeing it in code solidified it, and I understand now why feature modules are a good idea
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+- rxjs is just an abstraction from what angular already does.  Without rxjs, if you want to pass data from one component to the next, you would pass in the required data (like an id) into the url, then in the routed to component's constructur, you would make the GET request.
 
-## Build
+- This also made ngrx/effects make more sense.  I still prefur abstracting the services and http away from the components, but that may just be as part of valuing functional programming: Use pure functions, higher order functions, small functions that do just one thing right.  That makes for easier to maintain and easier to test code. It requires you to understand the abstractions, which should likely have vague arguments and variable names because they are so reusable.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Deploying to GitHub Pages
-
-Run `ng github-pages:deploy` to deploy to GitHub Pages.
-
-## Further help
-
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- Without rxjs, you don't get that sort of global store, which you could probably still create for your services.  But I can see the cation about blindly going with it because it can post the same threats that pushing a lot of data onto a global object can pose, along with using something you don't really understand. In the context of when I first started using it, I probably should have just used services by themselves, but to get the same results I would have had needed a stronger understanding of rxjs.x
